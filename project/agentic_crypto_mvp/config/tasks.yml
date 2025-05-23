@@ -1,0 +1,49 @@
+summarize_whitepaper:
+  description: >
+    Retrieve and summarize the whitepaper for the selected cryptocurrency, focusing on
+    key technical details, use cases, and competitive advantages. Extract the most
+    relevant information to provide a clear overview for potential investors.
+  expected_output: >
+    A concise but comprehensive summary of the whitepaper, including project goals, 
+    core technologies, consensus mechanisms, tokenomics, and any notable competitive 
+    advantages. Clearly explain why this project is unique or potentially impactful.
+  
+  agent: whitepaper_analyst
+
+research_price_trends:
+  description: >
+    Analyze short-term and long-term price trends for the selected cryptocurrency using
+    technical indicators. Explain the reasons behind any detected bullish or bearish signals.
+  expected_output: >
+    A detailed summary of price action including trend direction, key indicator values 
+    (e.g., RSI, MACD), and why these suggest potential movement. Include reasoning behind 
+    conclusions.
+
+  agent: market_analyst
+
+analyze_sentiment:
+  description: >
+    Analyze recent sentiment across crypto-related news, Twitter, and Reddit for the target
+    asset. Identify the tone (positive, neutral, negative) and explain key emotional or
+    thematic drivers behind public opinion.
+  expected_output: >
+    A sentiment summary with examples of posts or headlines, including explanations of 
+    why the sentiment is leaning a certain way. Mention any major events or narratives 
+    influencing the mood.
+
+  agent: sentiment_analyst
+
+generate_investment_thesis:
+  description: >
+    Combine technical and sentiment insights to provide a well-reasoned investment
+    recommendation for both short and long-term holding. Clearly explain why this crypto
+    asset is or isn't a good opportunity right now.
+  expected_output: >
+    A thesis outlining the investment potential, categorized by time horizon. Must explain
+    the reasoning behind the recommendation, referencing prior analysis, risk factors,
+    and confidence level.
+
+  agent: strategist
+  depends_on:
+    - research_price_trends
+    - analyze_sentiment
